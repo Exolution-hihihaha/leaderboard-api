@@ -21,3 +21,7 @@ def submit_score(score: schemas.ScoreCreate, db: Session = Depends(get_db)):
 @app.get("/leaderboard")
 def leaderboard(db: Session = Depends(get_db)):
     return crud.get_leaderboard(db)
+
+@app.get("/")
+def root():
+    return {"status": "OK", "message": "Leaderboard API is running"}
